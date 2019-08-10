@@ -26,7 +26,8 @@ func init() {
 	mysqlConf := config.Config.MysqlConfig
 	dbUrl := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", mysqlConf.User,
 		mysqlConf.Password, mysqlConf.Host, mysqlConf.Port, mysqlConf.Url)
-	//db1, err := gorm.Open("mysql", "user:password@/dbname?charset=utf8&parseTime=True&loc=Local")
+	//dbUrl := fmt.Sprintf("%s:%s@/%s", mysqlConf.User,
+	//	mysqlConf.Password, mysqlConf.Url)
 	db, err := gorm.Open("mysql", dbUrl)
 	if err != nil {
 		log.Fatalf("%v, 数据库链接失败: %s！", dbUrl, err)
